@@ -72,11 +72,15 @@ class ExpensesController extends Controller
         $model = new Expenses();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', '_id' => (string) $model->_id]);
+            if ($model->load($this->request->post())) {
+                if(empty($model->expense_type)){
+                    $model->expense_type = [];
+                }
+                if ($model->save()) {
+                    return $this->redirect(['view', '_id' => (string) $model->_id]);
+                }
             }
         } 
-
         return $this->render('create', [
             'model' => $model,
         ]);

@@ -1,5 +1,7 @@
 <?php
 
+use app\models\Types;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -8,26 +10,77 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="expenses-form">
+<style>
+    .bg-register-image {
+        background: url("https://www.sketchappsources.com/resources/source-image/investing-finance-icons-fullratio.png");
+        background-position: center;
+        background-size: cover;
+    }
+    .bg-register-color {
+        background-image: url('https://media.istockphoto.com/id/657808882/photo/gradient-blue-light-background.jpg?s=612x612&w=0&k=20&c=ZpJp7r_3f3BFcHgoAw2GG4QEr_BjOAlXZBmvjLYCEFM=');
+        background-size: cover;
+    }
+    .block {
+        border-radius: 10rem;
+        padding: 1.5rem 1rem;
+    }
+</style>
 
-    <?php $form = ActiveForm::begin(); ?>
+<div class="container">
+    <div class="site-signup">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7 bg-register-color">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Add Expense</h1>
+                            </div>
+                            <?php $form = ActiveForm::begin([
+                                'id' => 'form-signup',
+                                'options' => ['class' => 'user']
+                            ]); ?>
+                                <?php  $expense_type = ArrayHelper::map(Types::find()->all(), 'expense_type_name','expense_type_name'); ?>
+                                <?= $form->field($model, 'expense_type[]', [
+                                    'inputOptions' => [
+                                        'class' => 'form-control',
+                                    ]
+                                ])->dropDownList($expense_type,['prompt'=>'Select Types',]) ?>
+                                <?= $form->field($model, 'amount', [
+                                    'inputOptions' => [
+                                        'class' => 'form-control form-control-user',
+                                    ]
+                                ])->textInput(['autofocus' => true]) ?>
 
-    <?= $form->field($model, 'expense_type') ?>
+                                <?= $form->field($model, 'create_date', [
+                                    'inputOptions' => [
+                                        'class' => 'form-control form-control-user',
+                                    ]
+                                ])->textInput(['autofocus' => true]) ?>
 
-    <?= $form->field($model, 'amount') ?>
+                                <?= $form->field($model, 'update_date', [
+                                    'inputOptions' => [
+                                        'class' => 'form-control form-control-user',
+                                    ]
+                                ])->textInput(['autofocus' => true]) ?>
 
-    <?= $form->field($model, 'create_date') ?>
+                                <?= $form->field($model, 'update_by')->hiddenInput(['value'=> Yii::$app->user->identity->id])->label(false) ?>
 
-    <?= $form->field($model, 'update_date') ?>
+                                <?= $form->field($model, 'create_by')->hiddenInput(['value'=> Yii::$app->user->identity->id])->label(false) ?>
 
-    <?= $form->field($model, 'create_by') ?>
-
-    <?= $form->field($model, 'update_by') ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+                                <?= Html::submitButton('Save', ['class' => 'btn btn-success btn-user btn-block']) ?>
+                            <?php ActiveForm::end() ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <?php ActiveForm::end(); ?>
-
 </div>
+
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="js/sb-admin-2.min.js"></script>

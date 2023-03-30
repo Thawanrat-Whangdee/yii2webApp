@@ -70,9 +70,14 @@ class IncomesController extends Controller
         $model = new Incomes();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', '_id' => (string) $model->_id]);
-            }
+            if ($model->load($this->request->post())) {
+                if(empty($model->income_type)) {
+                    $model->income_type = [];
+                }
+                if ($model->save()) {
+                    return $this->redirect(['view', '_id' => (string) $model->_id]);
+                }
+            }  
         } 
 
         return $this->render('create', [

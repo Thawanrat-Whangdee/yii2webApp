@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             // '_id',
             'amount',
-            'user_id',
+            // 'user_id',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, \app\models\Limit $model, $key, $index, $column) {

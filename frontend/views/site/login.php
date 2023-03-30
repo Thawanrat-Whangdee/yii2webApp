@@ -9,6 +9,7 @@ use yii\bootstrap4\ActiveForm;
 
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
+\yii\web\YiiAsset::register($this);
 ?>
 
 <style>
@@ -57,6 +58,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                             'placholder' => 'Enter your password'
                                         ]
                                     ])->passwordInput() ?>
+
+                                    <?= $form->field($expenseModel, 'create_by')->hiddenInput(['value'=> Yii::$app->user->identity->id])->label(false) ?>
 
                                     <?= $form->field($model, 'rememberMe')->checkbox() ?>
                                     <?= Html::submitButton('Login', ['class' => 'btn btn-primary btn-user btn-block', 'name' => 'login-button']) ?>

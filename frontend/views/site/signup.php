@@ -9,6 +9,7 @@ use yii\bootstrap4\ActiveForm;
 
 $this->title = 'Signup';
 $this->params['breadcrumbs'][] = $this->title;
+\yii\web\YiiAsset::register($this);
 ?>
 
 <style>

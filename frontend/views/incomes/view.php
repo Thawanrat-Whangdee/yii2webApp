@@ -30,12 +30,20 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             '_id',
-            'income_type',
+            // 'income_type',
+            [
+                'attribute' => 'income_type',
+                'format' => 'raw',
+                // 'contentOptions' => ['class' => 'text-center'],
+                'value' => function ($model) {
+                    return implode(",", (array)$model->income_type);
+                },
+            ],
             'amount',
-            'create_date',
-            'update_date',
-            'create_by',
-            'update_by',
+            // 'create_date',
+            // 'update_date',
+            // 'create_by',
+            // 'update_by',
         ],
     ]) ?>
 

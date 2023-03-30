@@ -29,10 +29,18 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             // '_id',
-            'expense_type',
+            // 'expense_type',
+            [
+                'attribute' => 'expense_type',
+                'format' => 'raw',
+                'contentOptions' => ['class' => 'text-center'],
+                'value' => function ($model) {
+                    return implode(",", (array)$model->expense_type);
+                },
+            ],
             'amount',
-            'create_date',
-            'update_date',
+            // 'create_date',
+            // 'update_date',
             //'create_by',
             //'update_by',
             [

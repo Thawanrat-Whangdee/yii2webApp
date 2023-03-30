@@ -31,8 +31,8 @@ $this->params['breadcrumbs'][] = $this->title;
             // '_id',
             'income_type_name',
             'expense_type_name',
-            'expense_id',
-            'income_id',
+            // 'expense_id',
+            // 'income_id',
             //'user_id',
             [
                 'class' => ActionColumn::className(),
