@@ -10,6 +10,13 @@ $this->title = 'Bossy Money';
 
 <head>
     <script src="https://kit.fontawesome.com/c3c7a2a31a.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Hind+Siliguri:wght@300&family=Nunito&family=Open+Sans&family=Sarabun:wght@200&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: 'Balsamiq Sans', cursive;
+        }
+    </style>
 </head>
 
 <body style="background-color: white">
