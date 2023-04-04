@@ -56,6 +56,10 @@ $this->title = 'Overview';
         .border {
             border-radius: 10rem;
         }
+
+        .font {
+            font-size: 14px;
+        }
     </style>
     <script src="https://kit.fontawesome.com/c3c7a2a31a.js" crossorigin="anonymous"></script>
 </head>
@@ -65,8 +69,16 @@ $this->title = 'Overview';
 <body style="background-color: #f8f9fa; font-size: 14px;">
     <div class="card" style="width: 100%; margin-top:2px;background-size: cover; background-image: url('https://cdn.pixabay.com/photo/2015/11/10/08/31/banner-1036483_1280.jpg');">
         <div class="containerB">
-            <div style="font-size: 14px; margin-right: 20px; margin-top: 10px; color: #ececec; ">
-                <p>Username</p><br>
+            <div style="font-size: 14px; margin-right: 20px; margin-top: 15px; color: #ececec; ">
+                <table style="width:100%; margin-bottom:20px;">
+                    <tr>
+                        <td>Username</td>
+                        <th></th>
+                        <th style="text-align: right;">
+                            <?= Html::a('<i class="fa-solid fa-circle-plus" style="color:white; font-size: 1.4em;" data-toggle="modal" data-target="#exampleModalCenter"></i>'); ?>
+                        </th>
+                    </tr>
+                </table>
                 <p>Balance</p>
                 <h4><b>100.00</b></h4>
                 <table style="width:110%">
@@ -120,16 +132,39 @@ $this->title = 'Overview';
             <div style="margin-left: 280px;">
                 <?= Html::a('<i class="fa fa-chevron-right" style="margin-top:10px;"></i>', ['/site/income']); ?>
             </div>
-            <table style="width:130%">
+            <table style="width:90%">
                 <tr>
                     <td>Food</td>
                     <th></th>
-                    <th>100</th>
+                    <th style="text-align: right;">100</th>
                 </tr>
             </table>
             <br>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class=" modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: #f8f9fa;">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Menu</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div style="margin-top: 15px; margin-bottom:17px;">
+                        <?= Html::a('Add Expenses', ['../expenses/index'], ['class' => 'btn btn-outline-info border font', 'style' => 'color:black; width:100%; margin-bottom:10px;']); ?><br>
+                        <?= Html::a('Add Incomes', ['/site/line'], ['class' => 'btn btn-light border font', 'style' => 'color:black; width:100%; margin-bottom:10px;']); ?><br>
+                        <?= Html::a('Add Savings', ['/site/pie'], ['class' => 'btn btn-light border font', 'style' => 'color:black; width:100%; margin-bottom:10px;']); ?><br>
+                        <?= Html::a('Add Limit', ['/site/calculator'], ['class' => 'btn btn-light border font', 'style' => 'color:black; width:100%; margin-bottom:10px;']); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>

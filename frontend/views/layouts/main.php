@@ -44,7 +44,7 @@ AppAsset::register($this);
             'brandLabel' => Yii::$app->name,
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
-                'class' => 'navbar navbar-expand-md navbar-light bg-light fixed-top',
+                'class' => 'navbar navbar-expand-md navbar-light bg-light fixed-top ',
             ],
         ]);
         $menuItems = [
@@ -56,11 +56,6 @@ AppAsset::register($this);
         } else {
             $menuItems[] = ['label' => 'About', 'url' => ['/site/about']];
             $menuItems[] = ['label' => 'Contact', 'url' => ['/site/contact']];
-            $menuItems[] = ['label' => 'Expenses', 'url' => ['/expenses/index']];
-            $menuItems[] = ['label' => 'Incomes', 'url' => ['/incomes/index']];
-            $menuItems[] = ['label' => 'Types', 'url' => ['/types/index']];
-            $menuItems[] = ['label' => 'Savings', 'url' => ['/savings/index']];
-            $menuItems[] = ['label' => 'Limit', 'url' => ['/limit/index']];
             $menuItems[] = ['label' => 'Overview', 'url' => ['/site/overview']];
             $menuItems[] = '<li>'
                 . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
