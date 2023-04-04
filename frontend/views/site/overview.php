@@ -129,14 +129,20 @@ $this->title = 'Overview';
     <h4 style="margin-right: 220px;"><b>Recently</b></h4>
     <div class=" card" style="width: 100%; margin-top:7px;">
         <div class="container">
-            <div style="margin-left: 280px;">
-                <?= Html::a('<i class="fa fa-chevron-right" style="margin-top:10px;"></i>', ['/site/income']); ?>
-            </div>
             <table style="width:90%">
                 <tr>
-                    <td>Food</td>
+                    <th style="padding-top: 10px; padding-left:10px;">
+                        <font size="3.5" class="body">Expenses</font>
+                    </th>
                     <th></th>
-                    <th style="text-align: right;">100</th>
+                    <th style="text-align:right;">
+                        <?= Html::a('<i class="fa fa-chevron-right" style="margin-top:10px;"></i>', ['/site/expense']); ?>
+                    </th>
+                </tr>
+                <tr>
+                    <td style="padding-top: 10px; padding-left:10px;">Food</td>
+                    <th></th>
+                    <th style=" text-align: right;">100</th>
                 </tr>
             </table>
             <br>
@@ -155,10 +161,10 @@ $this->title = 'Overview';
                 </div>
                 <div class="modal-body">
                     <div style="margin-top: 15px; margin-bottom:17px;">
-                        <?= Html::a('Add Expenses', ['../expenses/index'], ['class' => 'btn btn-outline-info border font', 'style' => 'color:black; width:100%; margin-bottom:10px;']); ?><br>
-                        <?= Html::a('Add Incomes', ['/site/line'], ['class' => 'btn btn-light border font', 'style' => 'color:black; width:100%; margin-bottom:10px;']); ?><br>
-                        <?= Html::a('Add Savings', ['/site/pie'], ['class' => 'btn btn-light border font', 'style' => 'color:black; width:100%; margin-bottom:10px;']); ?><br>
-                        <?= Html::a('Add Limit', ['/site/calculator'], ['class' => 'btn btn-light border font', 'style' => 'color:black; width:100%; margin-bottom:10px;']); ?>
+                        <?= Html::a('Add Expenses', ['/expenses/create'], ['class' => 'btn btn-outline-info border font', 'style' => 'color:black; width:100%; margin-bottom:10px;']); ?><br>
+                        <?= Html::a('Add Incomes', ['/incomes/create'], ['class' => 'btn btn-outline-info border font', 'style' => 'color:black; width:100%; margin-bottom:10px;']); ?><br>
+                        <?= Html::a('Add Savings', ['/savings/create'], ['class' => 'btn btn-outline-info border font', 'style' => 'color:black; width:100%; margin-bottom:10px;']); ?><br>
+                        <?= Html::a('Add Limit', ['/limit/create'], ['class' => 'btn btn-outline-info border font', 'style' => 'color:black; width:100%; margin-bottom:10px;']); ?>
                     </div>
                 </div>
             </div>
