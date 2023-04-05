@@ -69,7 +69,7 @@ $this->title = 'Chart';
         </div>
         <center>
             <div style="margin-top: 15px; margin-bottom:17px;">
-                <?= Html::a('Expend', ['/site/bar'], ['class' => 'btn btn-info border font']); ?>
+                <?= Html::a('Finance', ['/site/bar'], ['class' => 'btn btn-info border font']); ?>
                 <?= Html::a('Saving', ['/site/line'], ['class' => 'btn btn-light border font']); ?>
                 <?= Html::a('Percentage', ['/site/pie'], ['class' => 'btn btn-light border font']); ?>
                 <?= Html::a('Calculator', ['/site/calculator'], ['class' => 'btn btn-light border font']); ?>
@@ -78,6 +78,9 @@ $this->title = 'Chart';
 
     </div>
 
+    <!-- chart income      -->
+    <br>
+    <p style="text-align: center;">Income</p>
     <div>
         <canvas id="myChart"></canvas>
     </div>
@@ -87,6 +90,40 @@ $this->title = 'Chart';
         const ctx = document.getElementById('myChart');
 
         new Chart(ctx, {
+
+            type: 'bar',
+            data: {
+                labels: ['Travel', 'Shopping', 'Food'],
+                datasets: [{
+                        label: '',
+                        data: [12, 19, 3],
+                        borderWidth: 1
+                    }
+
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+    <!-- chart expenses      -->
+    <br>
+    <p style="text-align: center;">Expend</p>
+    <div>
+        <canvas id="myChart2"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx2 = document.getElementById('myChart2');
+
+        new Chart(ctx2, {
 
             type: 'bar',
             data: {

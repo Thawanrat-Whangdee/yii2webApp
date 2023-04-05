@@ -67,8 +67,8 @@ $this->title = 'Line';
         </div>
     </div>
     <center>
-        <div style="margin-top: 15px; margin-bottom: 40px;">
-            <?= Html::a('Expend', ['/site/bar'], ['class' => 'btn btn-light border font']); ?>
+        <div style="margin-top: 15px; margin-bottom: 40px; font-size:10px;">
+            <?= Html::a('Finance', ['/site/bar'], ['class' => 'btn btn-light border font']); ?>
             <?= Html::a('Saving', ['/site/line'], ['class' => 'btn btn-info border font']); ?>
             <?= Html::a('Percentage', ['/site/pie'], ['class' => 'btn btn-light border font']); ?>
             <?= Html::a('Calculator', ['/site/calculator'], ['class' => 'btn btn-light border font']); ?>
